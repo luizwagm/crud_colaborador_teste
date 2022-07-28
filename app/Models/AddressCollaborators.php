@@ -26,6 +26,11 @@ class AddressCollaborators extends Model
         'state'
     ];
 
+    /**
+     * The collaborator relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function collaborator(): BelongsTo
     {
         return $this->belongsTo(Collaborators::class);

@@ -25,11 +25,21 @@ class Collaborators extends Model
         'birthdate'
     ];
 
+    /**
+     * The payment collaborator relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function paymentCollaborator(): BelongsTo
     {
         return $this->belongsTo(PaymentCollaborators::class);
     }
 
+    /**
+     * The address collaborator relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function addressCollaborator(): BelongsTo
     {
         return $this->belongsTo(AddressCollaborators::class);

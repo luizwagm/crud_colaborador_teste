@@ -8,6 +8,13 @@ use App\Services\PaymentCollaborators\PaymentCollaboratorServiceContract;
 
 class CollaboratorService implements CollaboratorServiceContract
 {
+    /**
+     * Constructor method to instance services and repositories.
+     * 
+     * @param \App\Repositories\Collaborators\CollaboratorRepositoryContract $repository
+     * @param \App\Services\AddressCollaborators\AddressCollaboratorServiceContract $addressCollaboratorService
+     * @param \App\Services\PaymentCollaborators\PaymentCollaboratorServiceContract $paymentCollaboratorService
+     */
     public function __construct(
         protected CollaboratorRepositoryContract $repository,
         protected AddressCollaboratorServiceContract $addressCollaboratorService,
@@ -15,6 +22,12 @@ class CollaboratorService implements CollaboratorServiceContract
     ) {  
     }
 
+    /**
+     * Method to store an new collaborator or existing collaborator.
+     * 
+     * @param array $params
+     * @return array
+     */
     public function store(array $params): array
     {
         if (empty($params)) {
@@ -33,7 +46,14 @@ class CollaboratorService implements CollaboratorServiceContract
         return ['data' => $store, 'status' => 200];
     }
 
-    public function get($cpf = null, $id = null): array
+    /**
+     * Method to request an existing collaborator.
+     * 
+     * @param int|null $cpf
+     * @param int|null $id
+     * @return array
+     */
+    public function get(int|null $cpf = null, int|null $id = null): array
     {
         return [
             'data' => $this->repository->get($cpf, $id),
@@ -41,6 +61,12 @@ class CollaboratorService implements CollaboratorServiceContract
         ];
     }
 
+    /**
+     * Method to delete an existing collaborator.
+     * 
+     * @param int $id
+     * @return array
+     */
     public function delete(int $id = 0): array
     {
         if ($id == 0) {

@@ -22,6 +22,11 @@ class PaymentCollaborators extends Model
         'salary'
     ];
 
+    /**
+     * The collaborator relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function collaborator(): BelongsTo
     {
         return $this->belongsTo(Collaborators::class);
