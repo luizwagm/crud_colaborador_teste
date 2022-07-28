@@ -4,7 +4,7 @@ namespace App\Repositories\AddressCollaborators;
 
 use App\Models\AddressCollaborators;
 
-class AddressCollaboratorsRepository implements AddressCollaboratorRepositoryContract
+class AddressCollaboratorRepository implements AddressCollaboratorRepositoryContract
 {
     /**
      * Constructor method to instance AddressCollaborators.
@@ -42,7 +42,7 @@ class AddressCollaboratorsRepository implements AddressCollaboratorRepositoryCon
                 ->update($params);
         }
 
-        return false;
+        return null;
     }
 
     /**

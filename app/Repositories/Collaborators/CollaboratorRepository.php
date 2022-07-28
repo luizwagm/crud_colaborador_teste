@@ -5,7 +5,7 @@ namespace App\Repositories\Collaborators;
 use App\Models\Collaborators;
 use Illuminate\Database\Eloquent\Collection;
 
-class CollaboratorsRepository implements CollaboratorRepositoryContract
+class CollaboratorRepository implements CollaboratorRepositoryContract
 {
     /**
      * Constructor method to instance Collaborators.
@@ -51,22 +51,20 @@ class CollaboratorsRepository implements CollaboratorRepositoryContract
      * 
      * @param int|null $cpf
      * @param int|null $id
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Database\Eloquent\Collection|\App\Models\Collaborators|null
      */
-    public function get($cpf = null, $id = null): Collection
+    public function get($cpf = null, $id = null): Collection|Collaborators|null
     {
-        $get = $this->model;
+        $get = $this->model->with('addressCollaborator', 'paymentCollaborator');
             
         if ($cpf) {
-            $get->where('cpf', $cpf);
+            return $get->where('cpf', $cpf)->first();
         }
 
         if ($id) {
-            $get->where('id', $id);
+            return $get->where('id', $id)->first();
         }
     
-        $get->with(['paymentCollaborator', 'addressCollaborator']);
-        
         return $get->get();
     }
 

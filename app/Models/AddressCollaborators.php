@@ -27,6 +27,18 @@ class AddressCollaborators extends Model
     ];
 
     /**
+     * The attributes that are hidden.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'collaborator_id',
+        'id'
+    ];
+
+    /**
      * The collaborator relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

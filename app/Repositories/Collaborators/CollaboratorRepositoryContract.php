@@ -29,9 +29,9 @@ interface CollaboratorRepositoryContract
      * 
      * @param int|null $cpf
      * @param int|null $id
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Database\Eloquent\Collection|\App\Models\Collaborators|null
      */
-    public function get(int|null $cpf = null, int|null $id = null): Collection;
+    public function get(int|null $cpf = null, int|null $id = null): Collection|Collaborators|null;
 
     /**
      * Method to delete an existing collaborator.

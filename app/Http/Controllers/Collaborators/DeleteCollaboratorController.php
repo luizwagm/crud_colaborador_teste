@@ -13,7 +13,7 @@ class DeleteCollaboratorController extends BaseController
     /**
      * Constructor method to instance CollaboratorServiceContract.
      * 
-     * @param \App\Http\Requests\CollaboratorServiceContract $service
+     * @param \App\Services\Collaborators\CollaboratorServiceContract $service
      */
     public function __construct(
         protected CollaboratorServiceContract $service

@@ -31,7 +31,7 @@ class StoreCollaboratorRequest extends FormRequest
             ],
             'cpf' => [
                 'required',
-                'integer',
+                'string',
                 Rule::unique('collaborators', 'cpf')
             ],
             'email' => [
@@ -41,7 +41,7 @@ class StoreCollaboratorRequest extends FormRequest
             ],
             'rg' => [
                 'required',
-                'integer',
+                'string',
             ],
             'birthdate' => [
                 'required',

@@ -4,7 +4,7 @@ namespace App\Repositories\PaymentCollaborators;
 
 use App\Models\PaymentCollaborators;
 
-class PaymentCollaboratorsRepository implements PaymentCollaboratorRepositoryContract
+class PaymentCollaboratorRepository implements PaymentCollaboratorRepositoryContract
 {
     /**
      * Constructor method to instance PaymentCollaborators.
@@ -42,7 +42,7 @@ class PaymentCollaboratorsRepository implements PaymentCollaboratorRepositoryCon
                 ->update($params);
         }
 
-        return false;
+        return null;
     }
 
     /**

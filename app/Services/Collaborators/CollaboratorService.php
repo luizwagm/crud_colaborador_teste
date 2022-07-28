@@ -36,12 +36,16 @@ class CollaboratorService implements CollaboratorServiceContract
 
         $get = $this->repository->get(cpf: $params['cpf']);
 
+        $getId = $get ? $get->id : 0;
+
         $store = $get
-            ? $this->repository->update($get->id, $params)
+            ? $this->repository->update($getId, $params)
             : $this->repository->create($params);
 
-        $this->addressCollaboratorService->store($params, $store->id);
-        $this->paymentCollaboratorService->store($params, $store->id);
+        $params['collaborator_id'] = $store->id;
+
+        $this->addressCollaboratorService->store($params, $getId);
+        $this->paymentCollaboratorService->store($params, $getId);
 
         return ['data' => $store, 'status' => 200];
     }
