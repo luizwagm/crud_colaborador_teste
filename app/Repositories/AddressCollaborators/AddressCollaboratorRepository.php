@@ -54,7 +54,7 @@ class AddressCollaboratorRepository implements AddressCollaboratorRepositoryCont
     public function delete(int $id): bool
     {
         return $this->model
-            ->where('id', $id)
+            ->where('collaborator_id', $id)
             ->delete();
     }
 }

@@ -77,9 +77,9 @@ class CollaboratorService implements CollaboratorServiceContract
             return ['message' => 'Id is required', 'status' => 400];
         }
 
-        $this->repository->delete($id);
         $this->addressCollaboratorService->delete($id);
         $this->paymentCollaboratorService->delete($id);
+        $this->repository->delete($id);
 
         return ['status' => 204];
     }

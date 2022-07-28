@@ -54,7 +54,7 @@ class PaymentCollaboratorRepository implements PaymentCollaboratorRepositoryCont
     public function delete(int $id): bool
     {
         return $this->model
-            ->where('id', $id)
+            ->where('collaborator_id', $id)
             ->delete();
     }
 }
