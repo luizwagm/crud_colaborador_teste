@@ -29,7 +29,7 @@ class GetCollaboratorRequest extends FormRequest
                 'nullable'
             ],
             'cpf' => [
-                'integer',
+                'string',
                 'nullable'
             ]
         ];
